@@ -15,7 +15,7 @@ session_start();
    <link href="http://localhost/exam/exam/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><!-- INCLUYE AL BOSSTRAP ALA WEB -->
     <link href="http://localhost/exam/exam/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
    <script src="http://localhost/exam/exam/datespicker/css/datepicker.css"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->      
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -35,7 +35,7 @@ if(isset($submit))
       $result = mysqli_query($con,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
-      
+
       $count = mysqli_num_rows($result);
 */
       $sql = "SELECT * FROM mst_user WHERE login='$loginid' and pass='$pass'";
@@ -53,7 +53,7 @@ if(isset($submit))
 }
 if (isset($_SESSION[login]))
 {
-echo "<h1 class='style8' align=center>Bien venido al examen en línea</h1>";
+echo "<h1 class='style8' align=center>Examenes Departamentales</h1>";
 		echo '<table width="28%"  border="0" align="center">
   <tr>
     <td  width="7%" height="65" valign="bottom"><img src="image/HLPBUTT2.JPG" width="50" height="50" align="middle"></td>
@@ -64,9 +64,9 @@ echo "<h1 class='style8' align=center>Bien venido al examen en línea</h1>";
     <td valign="bottom"> <a href="result.php" class="alert alert-danger">Resultado </a></td>
   </tr>
 </table>';
-   
+
 		exit;
-		
+
 
 }
 
@@ -75,7 +75,7 @@ echo "<h1 class='style8' align=center>Bien venido al examen en línea</h1>";
 <table width="100%" border="0">
   <tr>
     <td width="70%" height="25">&nbsp;</td>
-    
+
     <td width="29%" bgcolor="#1d91d0"><div align="center" class="style1">Inicio de sesión de usuario</div></td>
   </tr>
   <tr>
@@ -89,7 +89,7 @@ echo "<h1 class='style8' align=center>Bien venido al examen en línea</h1>";
         <param name="BGCOLOR" value="#FFFFFF">
 <p align="left" class="style5">&nbsp;</p>
       <blockquote>
-          <p align="left" class="style5"><span class="style7">Bienvenido. Este tutorial proporcionará el examen en línea para diversos temas de interés. 
+          <p align="left" class="style5"><span class="style7">Bienvenido. Este tutorial proporcionará el examen en línea para diversos temas de interés.
             Necesita iniciar sesión para tomar el examen en línea.</span></p>
       </blockquote>
     </div></td>
@@ -121,7 +121,7 @@ echo "<h1 class='style8' align=center>Bien venido al examen en línea</h1>";
           <td colspan="2" bgcolor="#1d91d0"><div align="center"><span class="style4">New User ? <a href="signup.php">Signup Free</a></span></div></td>
           </tr>
       </table>
-      
+
     </form></td>
   </tr>
 </table>
