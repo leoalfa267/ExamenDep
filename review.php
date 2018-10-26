@@ -36,19 +36,21 @@ else if($submit=='Next Question' )
 
 $rs=mysqli_query($con,"select * from mst_useranswer where sess_id='" . session_id() ."'",$cn) or die(mysql_error());
 mysqli_data_seek($rs,$_SESSION[qn]);
-$row= mysqli_fetch_row($rs);
+//$row= mysqli_fetch_row($rs);
 echo "<form name=myfm method=post action=review.php>";
 echo "<table width=100%> <tr> <td width=30>&nbsp;<td> <table border=0>";
 $n=$_SESSION[qn]+1;
-echo "<tR><td><span class=style2>Que ".  $n .": $row[2]</style>";
-echo "<tr><td class=".($row[7]==1?'tans':'style8').">$row[3]";
-echo "<tr><td class=".($row[7]==2?'tans':'style8').">$row[4]";
-echo "<tr><td class=".($row[7]==3?'tans':'style8').">$row[5]";
-echo "<tr><td class=".($row[7]==4?'tans':'style8').">$row[6]";
-if($_SESSION[qn]<mysqli_num_rows($rs)-1)
-echo "<tr><td><input type=submit name=submit value='Próxima pregunta'></form>";
-else
-echo "<tr><td><input type=submit name=submit value='Terminar'></form>";
-
+$cont=1;
+    while($renglon = mysqli_fetch_array($rs)) {
+        echo "<tR><td><span class=style2>Que ".  $cont .": $renglon[2]</style>";
+                echo "<tr>";
+                echo "<tr><td class=".($renglon[7]==1?'tans':'style8').">$renglon[3]";
+                echo "<tr><td class=".($renglon[7]==2?'tans':'style8').">$renglon[4]";
+                echo "<tr><td class=".($renglon[7]==3?'tans':'style8').">$renglon[5]";
+                echo "<tr><td class=".($renglon[7]==4?'tans':'style8').">$renglon[6]";
+                
+                echo "</tr>";
+        $cont++;
+                }
 echo "</table></table>";
 ?>
