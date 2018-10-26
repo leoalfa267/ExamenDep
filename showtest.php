@@ -12,7 +12,7 @@ session_start();
    <link href="http://localhost/exam/exam/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><!-- INCLUYE AL BOSSTRAP ALA WEB -->
     <link href="http://localhost/exam/exam/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
    <script src="http://localhost/exam/exam/datespicker/css/datepicker.css"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->      
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -30,10 +30,10 @@ echo "<h1 align=center><font color=blue> $row1[1]</font></h1>";
 $rs=mysqli_query($con,"select * from mst_test where sub_id=$subid");
 if(mysqli_num_rows($rs)<1)
 {
-	echo "<br><br><h2 class=head1>Sin cuestionario para este tema</h2>";
+	echo "<br><br><h2 class=head1>No hay examenes registrados</h2>";
 	exit;
 }
-echo "<h2 class=head1> Seleccione el nombre del concurso para dar el cuestionario</h2>";
+echo "<h2 class=head1> Selecciona el examen</h2>";
 echo "<table align=center class='table'>";
 
 while($row=mysqli_fetch_row($rs))
@@ -45,4 +45,3 @@ echo "</table>";
 
 </body>
 </html>
-
