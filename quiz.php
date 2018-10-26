@@ -43,14 +43,14 @@ if(!isset($_SESSION[qn]))
 	$_SESSION[qn]=0;
 	mysqli_query($con,"delete from mst_useranswer where sess_id='" . session_id() ."'") or die(mysql_error());
 	$_SESSION[trueans]=0;
-	
+
 }
 else
-{	
-		if($submit=='Next Question' && isset($ans))
+{
+		if($submit=='Enviar Respuesta' && isset($ans))
 		{
 				mysqli_data_seek($rs,$_SESSION[qn]);
-				$row= mysqli_fetch_row($rs);	
+				$row= mysqli_fetch_row($rs);
 				mysqli_query($con,"insert into mst_useranswer(sess_id, test_id, que_des, ans1,ans2,ans3,ans4,true_ans,your_ans) values ('".session_id()."', $tid,'$row[2]','$row[3]','$row[4]','$row[5]', '$row[6]','$row[7]','$ans')") or die(mysql_error());
 				if($ans==$row[7])
 				{
@@ -58,10 +58,10 @@ else
 				}
 				$_SESSION[qn]=$_SESSION[qn]+1;
 		}
-		else if($submit=='Get Result' && isset($ans))
+		else if($submit=='Terminar Examen' && isset($ans))
 		{
 				mysqli_data_seek($rs,$_SESSION[qn]);
-				$row= mysqli_fetch_row($rs);	
+				$row= mysqli_fetch_row($rs);
 				mysqli_query($con,"insert into mst_useranswer(sess_id, test_id, que_des, ans1,ans2,ans3,ans4,true_ans,your_ans) values ('".session_id()."', $tid,'$row[2]','$row[3]','$row[4]','$row[5]', '$row[6]','$row[7]','$ans')") or die(mysqli_error());
 				if($ans==$row[7])
 				{
@@ -69,13 +69,13 @@ else
 				}
 				echo "<h1 class=head1> Resultado</h1>";
 				$_SESSION[qn]=$_SESSION[qn]+1;
-				echo "<Table align=center><tr class=tot><td> total Preguntas<td> $_SESSION[qn]";
+				echo "<Table align=center><tr class=tot><td>Total Preguntas<td> $_SESSION[qn]";
 				echo "<tr class=tans><td>Respuestas correctas<td>".$_SESSION[trueans];
 				$w=$_SESSION[qn]-$_SESSION[trueans];
-				echo "<tr class=fans><td>Respuesta incorrecta<td> ". $w;
+				echo "<tr class=fans><td>Respuestas incorrectas<td> ". $w;
 				echo "</table>";
 				mysqli_query($con,"insert into mst_result(login,test_id,test_date,score) values('$login',$tid,'".date("d/m/Y")."',$_SESSION[trueans])") or die(mysqli_error());
-				echo "<h1 align=center><a href=review.php>Pregunta de repaso</a> </h1>";
+				echo "<h1 align=center><a href=review.php>Verificar respuestas</a> </h1>";
 				unset($_SESSION[qn]);
 				unset($_SESSION[sid]);
 				unset($_SESSION[tid]);
@@ -105,9 +105,9 @@ echo "<tr><td class=style8><input type=radio name=ans value=3>$row[5]";
 echo "<tr><td class=style8><input type=radio name=ans value=4>$row[6]";
 
 if($_SESSION[qn]<mysqli_num_rows($rs)-1)
-echo "<tr><td><input type=submit name=submit value='Next Question'></form>";
+echo "<tr><td><input type=submit name=submit value='Enviar Respuesta'></form>";
 else
-echo "<tr><td><input type=submit name=submit value='Get Result'></form>";
+echo "<tr><td><input type=submit name=submit value='Terminar Examen'></form>";
 echo "</table></table>";
 ?>
 </body>
