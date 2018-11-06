@@ -11,7 +11,7 @@ error_reporting(1);
    <link href="http://localhost/exam/exam/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><!-- INCLUYE AL BOSSTRAP ALA WEB -->
     <link href="http://localhost/exam/exam/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
    <script src="http://localhost/exam/exam/datespicker/css/datepicker.css"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->      
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
@@ -25,7 +25,7 @@ extract($_POST);
 if(isset($submit))
 {
 	include("../database.php");
-	
+
       $sql = "SELECT * FROM mst_admin WHERE loginid='$loginid' and pass='$pass'";
 	$rs=mysqli_query($con,$sql);
   $row = mysqli_fetch_array($rs,MYSQLI_ASSOC);
@@ -36,7 +36,7 @@ if(isset($submit))
 		exit;
 	}
 $_SESSION['alogin']="true";
-	
+
 }
 else if(!isset($_SESSION[alogin]))
 {
@@ -49,13 +49,11 @@ else if(!isset($_SESSION[alogin]))
 <div style="margin:auto;width:90%;height:500px;box-shadow:2px 1px 2px 2px #CCCCCC;text-align:left">
 <div style="margin-left:20%;padding-top:5%">
 
-<p class="style7"><a href="subadd.php"><font  class='text-danger' size=6>Añadir tema</font></a></p>
-<p class="style7"><a href="testadd.php"><font  class='text-danger' size=6>Agregar prueba</font></a></p>
-<p class="style7"><a href="questionadd.php"><font  class='text-danger' size=6>Agregar pregunta</font> </a></p>
+<p class="style7"><a href="subadd.php"><font  class='text-danger' size=6>Agregar Materia</font></a></p>
+<p class="style7"><a href="testadd.php"><font  class='text-danger' size=6>Agregar Examen</font></a></p>
+<p class="style7"><a href="questionadd.php"><font  class='text-danger' size=6>Agregar preguntas</font> </a></p>
 <p align="center" class="head1">&nbsp;</p>
 </div>
 </div>
 </body>
 </html>
-
-

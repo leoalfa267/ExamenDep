@@ -20,7 +20,7 @@ include("header.php");
 <table width="490" border="0">
   <tr>
     <td width="106"><span class="style2"></span></td>
-    <td width="132"><span class="style2"><span class="head1"><img src="login.jpg" width="131" height="155"></span></span></td>
+    <td width="132"><span class="style2"><span class="head1"><img src="../image/admin.png" width="131" height="155"></span></span></td>
     <td width="238"><table width="219" border="0" align="center">
   <tr>
     <td width="163" class="style2">Login ID </td>

@@ -15,13 +15,13 @@ require("../database.php");
 include("header.php");
 
 
-echo "<br><h2><div  class=head1>Agregar prueba</div></h2>";
+echo "<br><h2><div  class=head1>Agregar examen</div></h2>";
 if($_POST[submit]=='Save' || strlen($_POST['subid'])>0 )
 {
 extract($_POST);
 $query3="insert into mst_test(sub_id,test_name,total_que) values ('$subid','$testname','$totque')";
 $rs3=mysqli_query($con,$query3)or die("no se registro error error");
-echo "<p align=center>Test <b>\"$testname\"</b> Agregado exitosamente.</p>";
+echo "<p align=center>Examen <b>\"$testname\"</b> Agregado exitosamente.</p>";
 
 unset($_POST);
 }
@@ -46,8 +46,8 @@ return true;
 <form name="form1" method="post"  onSubmit="return check();">
   <table width="58%"  border="0" align="center">
     <tr>
-      <td width="49%" height="32"><div align="left"><strong>Ingrese la ID del sujeto</strong></div></td>
-      <td width="3%" height="5">  
+      <td width="49%" height="32"><div align="left"><strong>Selecciona la materia</strong></div></td>
+      <td width="3%" height="5">
       <td width="48%" height="32"><select name="subid">
 <?php
 
@@ -67,14 +67,14 @@ echo "<option value='$row[0]'>$row[1]</option>";
 }
 ?>
       </select>
-        
+
     <tr>
-        <td height="26"><div align="left"><strong> Introduzca el nombre de la prueba </strong></div></td>
+        <td height="26"><div align="left"><strong> Introduzca el nombre del examen </strong></div></td>
         <td>&nbsp;</td>
 	  <td><input name="testname" type="text" id="testname"></td>
     </tr>
     <tr>
-      <td height="26"><div align="left"><strong>Ingrese la pregunta total </strong></div></td>
+      <td height="26"><div align="left"><strong>Ingrese el total de preguntas </strong></div></td>
       <td>&nbsp;</td>
       <td><input name="totque" type="text" id="totque"></td>
     </tr>

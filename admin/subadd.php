@@ -16,7 +16,7 @@ if (!isset($_SESSION['alogin']))
 	echo "<a href=index.php><h3 align=center>Haga clic aquí para iniciar sesión</h3></a>";
 	exit();
 }
-echo "<BR><h3 class=head1>Asunto Agregar</h3>";
+echo "<BR><h3 class=head1>Agregar Materia</h3>";
 
 echo "<table width=100%>";
 echo "<tr><td align=center></table>";
@@ -30,7 +30,7 @@ if($submit=='submit' || strlen($subname)>0 )
     $count = mysqli_num_rows($rs);
   if($count>0)
   {
-    echo "<br><br><br><div class=head1>El sujeto ya existe
+    echo "<br><br><br><div class=head1>La materia ya existe
 </div>";
   exit;
   }
@@ -46,7 +46,7 @@ $submit="";
 function check() {
 mt=document.form1.subname.value;
 if (mt.length<1) {
-alert("Por favor ingrese el nombre del sujeto");
+alert("Por favor ingrese el nombre de la materia");
 document.form1.subname.focus();
 return false;
 }
@@ -59,10 +59,10 @@ return true;
 <form name="form1" method="post" onSubmit="return check();">
   <table width="41%"  border="0" align="center">
     <tr>
-      <td width="45%" height="32"><div align="center"><strong>Ingrese el nombre del sujeto</strong></div></td>
-      <td width="2%" height="5">  
+      <td width="45%" height="32"><div align="center"><strong>Ingrese el nombre de la materia</strong></div></td>
+      <td width="2%" height="5">
       <td width="53%" height="32">
-        <input name="subname" placeholder="ingrese el nombre del idioma" type="text" id="subname">
+        <input name="subname" placeholder="Ej. Caculo Integral" type="text" id="subname">
     <tr>
         <td height="26"> </td>
         <td>&nbsp;</td>
